@@ -1,0 +1,11 @@
+---
+sickbeard:
+    build: .
+    container_name: sickbeard
+    volumes:
+        - ./data/datadir:/datadir
+        - ./data/download:/download
+        - ./data/media:/media
+    restart: always
+    ports:
+        - "8081:8081"
