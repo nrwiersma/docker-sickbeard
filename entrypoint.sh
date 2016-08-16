@@ -29,8 +29,9 @@ echo "[DONE]"
 # Clone sickbeard to get the latest version
 #
 
-printf "Installing SickBeard... "
-git clone -q git://github.com/midgetspy/Sick-Beard.git .
+printf "Updating SickBeard... "
+git fetch
+git reset --hard origin/master
 echo "[DONE]"
 
 #

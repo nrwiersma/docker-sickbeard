@@ -10,6 +10,7 @@ RUN addgroup -S -g 666 sickbeard \
 
 # Install Dependencies
 RUN apk add --no-cache ca-certificates py-openssl openssl git \
+    && git clone git://github.com/midgetspy/Sick-Beard.git /sickbeard \
     && wget -O- https://pypi.python.org/packages/source/C/Cheetah/Cheetah-$CHEETAH.tar.gz | tar -zx \
     && cd Cheetah-$CHEETAH \
     && python setup.py install \
