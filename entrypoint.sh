@@ -26,12 +26,12 @@ printf "Updating UID / GID... "
 echo "[DONE]"
 
 #
-# Clone sickbeard to get the latest version
+# Update Sickbeard to the lastest version
 #
 
 printf "Updating SickBeard... "
-git fetch
-git reset --hard origin/master
+git fetch -q
+git reset -q --hard origin/master
 echo "[DONE]"
 
 #
