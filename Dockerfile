@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:3.10
 MAINTAINER Nicholas Wiersma <nick@wiersma.co.za>
 
 ENV VERSION master
@@ -10,12 +10,12 @@ RUN addgroup -S -g 666 sickbeard \
 
 # Install Dependencies
 RUN apk add --no-cache ca-certificates python py-openssl openssl git \
-    && git clone git://github.com/midgetspy/Sick-Beard.git /sickbeard \
     && wget -O- https://pypi.python.org/packages/source/C/Cheetah/Cheetah-$CHEETAH.tar.gz | tar -zx \
     && cd Cheetah-$CHEETAH \
     && python setup.py install \
     && cd .. \
-    && rm -rf Cheetah-$CHEETAH
+    && rm -rf Cheetah-$CHEETAH \
+    && git clone git://github.com/nrwiersma/Sick-Beard.git /sickbeard
 
 # Add SickBeard init script.
 ADD entrypoint.sh /entrypoint.sh
